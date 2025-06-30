@@ -22,6 +22,7 @@ namespace RoadRush
         int playerCarSpeed = 20;
         int enemySpeed = 2;  // You can adjust this for difficulty
         Random random = new Random();
+        Dictionary<PictureBox, int> enemyOriginalX = new Dictionary<PictureBox, int>();
         // Delay timers (in ticks) for each enemy spawn
         int enemy1Delay = 0;
         int enemy2Delay = 0;
@@ -34,7 +35,7 @@ namespace RoadRush
         int leftLaneX = 157;  // Center X for left lane
         int rightLaneX = 304; // Center X for right lane
         bool moveLeft = false;
-        bool moveRight = false;
+        bool moveRight = false;      
         public RacingGameForm()
         {
             InitializeComponent();
@@ -175,7 +176,7 @@ namespace RoadRush
                     enemyCar.Top = -enemyCar.Height * random.Next(1, 6);
                 }
             }
-        }
+        }                
 
         private void GameOver()
         {
