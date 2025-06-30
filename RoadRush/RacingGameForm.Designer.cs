@@ -1,7 +1,7 @@
 ﻿
 namespace RoadRush
 {
-    partial class Form1
+    partial class RacingGameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace RoadRush
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RacingGameForm));
             this.PlayerCar = new System.Windows.Forms.PictureBox();
             this.EnemyCar1 = new System.Windows.Forms.PictureBox();
             this.EnemyCar2 = new System.Windows.Forms.PictureBox();

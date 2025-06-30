@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RoadRush
 {
-    public partial class Form1 : Form
+    public partial class RacingGameForm : Form
     {
         List<PictureBox> leftRoadLines = new List<PictureBox>();
         List<PictureBox> rightRoadLines = new List<PictureBox>();
@@ -35,7 +35,7 @@ namespace RoadRush
         int rightLaneX = 304; // Center X for right lane
         bool moveLeft = false;
         bool moveRight = false;
-        public Form1()
+        public RacingGameForm()
         {
             InitializeComponent();
             // Start enemy cars off-screen with random delays and spacing

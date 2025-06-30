@@ -31,8 +31,8 @@ namespace RoadRush
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PlayGame = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,25 +48,27 @@ namespace RoadRush
             this.label1.TabIndex = 0;
             this.label1.Text = "ROAD RUSH";
             // 
-            // button1
+            // PlayGame
             // 
-            this.button1.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(312, 258);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 55);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "PLAY GAME";
-            this.button1.UseVisualStyleBackColor = true;
+            this.PlayGame.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayGame.Location = new System.Drawing.Point(312, 258);
+            this.PlayGame.Name = "PlayGame";
+            this.PlayGame.Size = new System.Drawing.Size(207, 55);
+            this.PlayGame.TabIndex = 1;
+            this.PlayGame.Text = "PLAY GAME";
+            this.PlayGame.UseVisualStyleBackColor = true;
+            this.PlayGame.Click += new System.EventHandler(this.PlayGame_Click);
             // 
-            // button2
+            // Exit
             // 
-            this.button2.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(312, 341);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 55);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "EXIT";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Exit.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit.Location = new System.Drawing.Point(312, 341);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(207, 55);
+            this.Exit.TabIndex = 2;
+            this.Exit.Text = "EXIT";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // pictureBox1
             // 
@@ -85,8 +87,8 @@ namespace RoadRush
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.PlayGame);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "MainMenuForm";
@@ -100,8 +102,8 @@ namespace RoadRush
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button PlayGame;
+        private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

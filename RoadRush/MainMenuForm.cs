@@ -16,5 +16,19 @@ namespace RoadRush
         {
             InitializeComponent();
         }
+
+        private void PlayGame_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide the menu
+
+            RacingGameForm gameForm = new RacingGameForm();
+            gameForm.FormClosed += (s, args) => this.Close(); // Close menu when game ends
+            gameForm.Show();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
