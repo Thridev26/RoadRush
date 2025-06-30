@@ -19,7 +19,7 @@ namespace RoadRush
         int lineHeight = 100;
         int spacing = 150; // Adjust vertical spacing as needed
         int startY = -100; // Start position above the form for looping
-        int playerCarSpeed = 70;
+        int playerCarSpeed = 20;
         int enemySpeed = 2;  // You can adjust this for difficulty
         Random random = new Random();
         // Delay timers (in ticks) for each enemy spawn
@@ -33,6 +33,8 @@ namespace RoadRush
         bool enemy3Active = true;
         int leftLaneX = 157;  // Center X for left lane
         int rightLaneX = 304; // Center X for right lane
+        bool moveLeft = false;
+        bool moveRight = false;
         public Form1()
         {
             InitializeComponent();
@@ -87,6 +89,15 @@ namespace RoadRush
                 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            // Smooth player movement
+            int minX = 0;
+            int maxX = this.Width - PlayerCar.Width;
+
+            if (moveLeft)
+                PlayerCar.Left = Math.Max(minX, PlayerCar.Left - playerCarSpeed);
+
+            if (moveRight)
+                PlayerCar.Left = Math.Min(maxX, PlayerCar.Left + playerCarSpeed);
             int speed = 10;
 
             foreach (var line in leftRoadLines)
@@ -116,23 +127,26 @@ namespace RoadRush
             }
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
-            int minX = 0;
-            int maxX = this.Width - PlayerCar.Width;
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
+                moveLeft = true;
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
+                moveRight = true;
 
-            if (keyData == Keys.Left || keyData == Keys.A)
-            {
-                PlayerCar.Left = Math.Max(minX, PlayerCar.Left - playerCarSpeed);
-                return true;  // key handled
-            }
-            else if (keyData == Keys.Right || keyData == Keys.D)
-            {
-                PlayerCar.Left = Math.Min(maxX, PlayerCar.Left + playerCarSpeed);
-                return true;  // key handled
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
+            base.OnKeyDown(e);
         }
+
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
+                moveLeft = false;
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
+                moveRight = false;
+
+            base.OnKeyUp(e);
+        }
+
 
         private void MoveEnemyCar(PictureBox enemyCar, ref int delayCounter, ref bool isActive)
         {
