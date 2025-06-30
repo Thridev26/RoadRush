@@ -68,9 +68,9 @@ namespace RoadRush
             // 
             this.EnemyCar2.BackColor = System.Drawing.Color.Green;
             this.EnemyCar2.Image = ((System.Drawing.Image)(resources.GetObject("EnemyCar2.Image")));
-            this.EnemyCar2.Location = new System.Drawing.Point(553, 31);
+            this.EnemyCar2.Location = new System.Drawing.Point(325, 160);
             this.EnemyCar2.Name = "EnemyCar2";
-            this.EnemyCar2.Size = new System.Drawing.Size(50, 100);
+            this.EnemyCar2.Size = new System.Drawing.Size(54, 100);
             this.EnemyCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EnemyCar2.TabIndex = 2;
             this.EnemyCar2.TabStop = false;
