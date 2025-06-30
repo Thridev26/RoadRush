@@ -42,7 +42,7 @@ namespace RoadRush
             // PlayerCar
             // 
             this.PlayerCar.BackColor = System.Drawing.Color.Red;
-            this.PlayerCar.Location = new System.Drawing.Point(210, 549);
+            this.PlayerCar.Location = new System.Drawing.Point(325, 549);
             this.PlayerCar.Name = "PlayerCar";
             this.PlayerCar.Size = new System.Drawing.Size(50, 100);
             this.PlayerCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -52,7 +52,7 @@ namespace RoadRush
             // EnemyCar1
             // 
             this.EnemyCar1.BackColor = System.Drawing.Color.Blue;
-            this.EnemyCar1.Location = new System.Drawing.Point(83, 31);
+            this.EnemyCar1.Location = new System.Drawing.Point(132, 31);
             this.EnemyCar1.Name = "EnemyCar1";
             this.EnemyCar1.Size = new System.Drawing.Size(50, 100);
             this.EnemyCar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -62,7 +62,7 @@ namespace RoadRush
             // EnemyCar2
             // 
             this.EnemyCar2.BackColor = System.Drawing.Color.Green;
-            this.EnemyCar2.Location = new System.Drawing.Point(359, 31);
+            this.EnemyCar2.Location = new System.Drawing.Point(516, 31);
             this.EnemyCar2.Name = "EnemyCar2";
             this.EnemyCar2.Size = new System.Drawing.Size(50, 100);
             this.EnemyCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,7 +78,7 @@ namespace RoadRush
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(478, 661);
+            this.ClientSize = new System.Drawing.Size(717, 661);
             this.Controls.Add(this.EnemyCar2);
             this.Controls.Add(this.EnemyCar1);
             this.Controls.Add(this.PlayerCar);
