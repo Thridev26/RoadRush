@@ -19,9 +19,18 @@ namespace RoadRush
         int lineHeight = 100;
         int spacing = 150; // Adjust vertical spacing as needed
         int startY = -100; // Start position above the form for looping
-        int playerCarSpeed = 35;
-        int enemySpeed = 1;  // You can adjust this for difficulty
+        int playerCarSpeed = 50;
+        int enemySpeed = 2;  // You can adjust this for difficulty
         Random random = new Random();
+        // Delay timers (in ticks) for each enemy spawn
+        int enemy1Delay = 0;
+        int enemy2Delay = 0;
+        int enemy3Delay = 0;
+
+        // Track if enemy is currently visible on screen
+        bool enemy1Active = true;
+        bool enemy2Active = true;
+        bool enemy3Active = true;
         int leftLaneX = 157;  // Center X for left lane
         int rightLaneX = 304; // Center X for right lane
         public Form1()
@@ -82,14 +91,14 @@ namespace RoadRush
                     line.Top = -lineHeight;
             }
 
-            MoveEnemyCar(EnemyCar1);
-            MoveEnemyCar(EnemyCar2);
-            MoveEnemyCar(EnemyCar3);
+            MoveEnemyCar(EnemyCar1, ref enemy1Delay, ref enemy1Active);
+            MoveEnemyCar(EnemyCar2, ref enemy2Delay, ref enemy2Active);
+            MoveEnemyCar(EnemyCar3, ref enemy3Delay, ref enemy3Active);
 
             // Check collisions
-            if (PlayerCar.Bounds.IntersectsWith(EnemyCar1.Bounds) ||
-                PlayerCar.Bounds.IntersectsWith(EnemyCar2.Bounds) ||
-                PlayerCar.Bounds.IntersectsWith(EnemyCar3.Bounds))
+            if (PlayerCar.Bounds.IntersectsWith(EnemyCar1.Bounds) && enemy1Active ||
+                PlayerCar.Bounds.IntersectsWith(EnemyCar2.Bounds) && enemy2Active ||
+                PlayerCar.Bounds.IntersectsWith(EnemyCar3.Bounds) && enemy3Active)
             {
                 GameOver();
             }
@@ -113,12 +122,33 @@ namespace RoadRush
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void MoveEnemyCar(PictureBox enemyCar)
+        private void MoveEnemyCar(PictureBox enemyCar, ref int delayCounter, ref bool isActive)
         {
-            enemyCar.Top += enemySpeed;
+            if (isActive)
+            {
+                enemyCar.Top += enemySpeed;
+                if (enemyCar.Top > this.Height)
+                {
+                    // Enemy goes off screen, deactivate and set delay
+                    isActive = false;
+                    enemyCar.Top = -enemyCar.Height; // Move off screen
 
-            if (enemyCar.Top > this.Height)
-                enemyCar.Top = -enemyCar.Height;
+                    // Random delay between 30 and 150 ticks (~1 to 5 seconds if timer interval is 30ms)
+                    delayCounter = random.Next(30, 150);
+                }
+            }
+            else
+            {
+                // Waiting to respawn
+                delayCounter--;
+                if (delayCounter <= 0)
+                {
+                    // Reactivate enemy
+                    isActive = true;
+                    // Spawn enemy just above visible area, at the same X position (no change)
+                    enemyCar.Top = -enemyCar.Height * random.Next(1, 6);
+                }
+            }
         }
 
         private void GameOver()
