@@ -19,12 +19,16 @@ namespace RoadRush
         int lineHeight = 100;
         int spacing = 150; // Adjust vertical spacing as needed
         int startY = -100; // Start position above the form for looping
-
-        int leftLaneX = 127;  // default center X for left lane (between 114 and 210)
-        int rightLaneX = 274; // default center X for right lane (between 259 and 359)
+        int playerCarSpeed = 15;
+        int enemySpeed = 1;  // You can adjust this for difficulty
+        Random random = new Random();
+        int leftLaneX = 157;  // Center X for left lane
+        int rightLaneX = 304; // Center X for right lane
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            leftLaneX = (114 + 210) / 2 - lineWidth / 2;
+            rightLaneX = (259 + 359) / 2 - lineWidth / 2;
             CreateRoadLines();
 
             GameTimer.Interval = 30; // or however fast you want the lines to move
@@ -34,9 +38,6 @@ namespace RoadRush
 
         private void CreateRoadLines()
         {
-            int leftLaneX = (114 + 210) / 2 - lineWidth / 2;  // Center X for left lane
-            int rightLaneX = (259 + 359) / 2 - lineWidth / 2; // Center X for right lane
-
             int numberOfLines = 5;
 
             for (int i = 0; i < numberOfLines; i++)
@@ -83,6 +84,38 @@ namespace RoadRush
                 {
                     line.Top = -lineHeight;
                 }
+                // Move enemy cars down
+                MoveEnemyCar(EnemyCar1);
+                MoveEnemyCar(EnemyCar2);
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            int minX = 0;
+            int maxX = this.Width - PlayerCar.Width;
+
+            if (keyData == Keys.Left || keyData == Keys.A)
+            {
+                PlayerCar.Left = Math.Max(minX, PlayerCar.Left - playerCarSpeed);
+                return true;  // key handled
+            }
+            else if (keyData == Keys.Right || keyData == Keys.D)
+            {
+                PlayerCar.Left = Math.Min(maxX, PlayerCar.Left + playerCarSpeed);
+                return true;  // key handled
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void MoveEnemyCar(PictureBox enemyCar)
+        {
+            enemyCar.Top += enemySpeed;
+
+            if (enemyCar.Top > this.Height)
+            {
+                enemyCar.Top = -enemyCar.Height;  // Respawn above the form
+                                                  // DO NOT change enemyCar.Left — keep horizontal position intact
             }
         }
     }
