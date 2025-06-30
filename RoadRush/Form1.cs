@@ -19,7 +19,7 @@ namespace RoadRush
         int lineHeight = 100;
         int spacing = 150; // Adjust vertical spacing as needed
         int startY = -100; // Start position above the form for looping
-        int playerCarSpeed = 50;
+        int playerCarSpeed = 70;
         int enemySpeed = 2;  // You can adjust this for difficulty
         Random random = new Random();
         // Delay timers (in ticks) for each enemy spawn
@@ -36,6 +36,18 @@ namespace RoadRush
         public Form1()
         {
             InitializeComponent();
+            // Start enemy cars off-screen with random delays and spacing
+            enemy1Active = false;
+            enemy1Delay = random.Next(30, 150);
+            EnemyCar1.Top = -EnemyCar1.Height * random.Next(1, 6);
+
+            enemy2Active = false;
+            enemy2Delay = random.Next(30, 150);
+            EnemyCar2.Top = -EnemyCar2.Height * random.Next(1, 6);
+
+            enemy3Active = false;
+            enemy3Delay = random.Next(30, 150);
+            EnemyCar3.Top = -EnemyCar3.Height * random.Next(1, 6);
             leftLaneX = (114 + 210) / 2 - lineWidth / 2;
             rightLaneX = (259 + 359) / 2 - lineWidth / 2;
             CreateRoadLines();
