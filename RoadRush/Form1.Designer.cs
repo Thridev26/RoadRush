@@ -30,6 +30,7 @@ namespace RoadRush
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PlayerCar = new System.Windows.Forms.PictureBox();
             this.EnemyCar1 = new System.Windows.Forms.PictureBox();
             this.EnemyCar2 = new System.Windows.Forms.PictureBox();
@@ -44,6 +45,7 @@ namespace RoadRush
             // PlayerCar
             // 
             this.PlayerCar.BackColor = System.Drawing.Color.Red;
+            this.PlayerCar.Image = ((System.Drawing.Image)(resources.GetObject("PlayerCar.Image")));
             this.PlayerCar.Location = new System.Drawing.Point(325, 549);
             this.PlayerCar.Name = "PlayerCar";
             this.PlayerCar.Size = new System.Drawing.Size(50, 100);
@@ -54,6 +56,7 @@ namespace RoadRush
             // EnemyCar1
             // 
             this.EnemyCar1.BackColor = System.Drawing.Color.Blue;
+            this.EnemyCar1.Image = ((System.Drawing.Image)(resources.GetObject("EnemyCar1.Image")));
             this.EnemyCar1.Location = new System.Drawing.Point(132, 31);
             this.EnemyCar1.Name = "EnemyCar1";
             this.EnemyCar1.Size = new System.Drawing.Size(50, 100);
@@ -64,9 +67,10 @@ namespace RoadRush
             // EnemyCar2
             // 
             this.EnemyCar2.BackColor = System.Drawing.Color.Green;
-            this.EnemyCar2.Location = new System.Drawing.Point(516, 31);
+            this.EnemyCar2.Image = ((System.Drawing.Image)(resources.GetObject("EnemyCar2.Image")));
+            this.EnemyCar2.Location = new System.Drawing.Point(511, 31);
             this.EnemyCar2.Name = "EnemyCar2";
-            this.EnemyCar2.Size = new System.Drawing.Size(50, 100);
+            this.EnemyCar2.Size = new System.Drawing.Size(60, 100);
             this.EnemyCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EnemyCar2.TabIndex = 2;
             this.EnemyCar2.TabStop = false;
@@ -78,6 +82,7 @@ namespace RoadRush
             // EnemyCar3
             // 
             this.EnemyCar3.BackColor = System.Drawing.Color.DarkMagenta;
+            this.EnemyCar3.Image = ((System.Drawing.Image)(resources.GetObject("EnemyCar3.Image")));
             this.EnemyCar3.Location = new System.Drawing.Point(325, 31);
             this.EnemyCar3.Name = "EnemyCar3";
             this.EnemyCar3.Size = new System.Drawing.Size(50, 100);
