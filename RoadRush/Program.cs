@@ -16,7 +16,7 @@ namespace RoadRush
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RacingGameForm());
+            Application.Run(new MainMenuForm());
         }
     }
 }
