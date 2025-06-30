@@ -34,9 +34,11 @@ namespace RoadRush
             this.EnemyCar1 = new System.Windows.Forms.PictureBox();
             this.EnemyCar2 = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.EnemyCar3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyCar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyCar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyCar3)).BeginInit();
             this.SuspendLayout();
             // 
             // PlayerCar
@@ -73,6 +75,16 @@ namespace RoadRush
             // 
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
+            // EnemyCar3
+            // 
+            this.EnemyCar3.BackColor = System.Drawing.Color.DarkMagenta;
+            this.EnemyCar3.Location = new System.Drawing.Point(325, 31);
+            this.EnemyCar3.Name = "EnemyCar3";
+            this.EnemyCar3.Size = new System.Drawing.Size(50, 100);
+            this.EnemyCar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.EnemyCar3.TabIndex = 3;
+            this.EnemyCar3.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -80,6 +92,7 @@ namespace RoadRush
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(717, 661);
+            this.Controls.Add(this.EnemyCar3);
             this.Controls.Add(this.EnemyCar2);
             this.Controls.Add(this.EnemyCar1);
             this.Controls.Add(this.PlayerCar);
@@ -91,6 +104,7 @@ namespace RoadRush
             ((System.ComponentModel.ISupportInitialize)(this.PlayerCar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyCar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyCar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyCar3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -101,6 +115,7 @@ namespace RoadRush
         private System.Windows.Forms.PictureBox EnemyCar1;
         private System.Windows.Forms.PictureBox EnemyCar2;
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.PictureBox EnemyCar3;
     }
 }
 

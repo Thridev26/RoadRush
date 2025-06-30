@@ -19,7 +19,7 @@ namespace RoadRush
         int lineHeight = 100;
         int spacing = 150; // Adjust vertical spacing as needed
         int startY = -100; // Start position above the form for looping
-        int playerCarSpeed = 15;
+        int playerCarSpeed = 35;
         int enemySpeed = 1;  // You can adjust this for difficulty
         Random random = new Random();
         int leftLaneX = 157;  // Center X for left lane
@@ -72,21 +72,26 @@ namespace RoadRush
             {
                 line.Top += speed;
                 if (line.Top > this.Height)
-                {
                     line.Top = -lineHeight;
-                }
             }
 
             foreach (var line in rightRoadLines)
             {
                 line.Top += speed;
                 if (line.Top > this.Height)
-                {
                     line.Top = -lineHeight;
-                }
-                // Move enemy cars down
-                MoveEnemyCar(EnemyCar1);
-                MoveEnemyCar(EnemyCar2);
+            }
+
+            MoveEnemyCar(EnemyCar1);
+            MoveEnemyCar(EnemyCar2);
+            MoveEnemyCar(EnemyCar3);
+
+            // Check collisions
+            if (PlayerCar.Bounds.IntersectsWith(EnemyCar1.Bounds) ||
+                PlayerCar.Bounds.IntersectsWith(EnemyCar2.Bounds) ||
+                PlayerCar.Bounds.IntersectsWith(EnemyCar3.Bounds))
+            {
+                GameOver();
             }
         }
 
@@ -113,10 +118,13 @@ namespace RoadRush
             enemyCar.Top += enemySpeed;
 
             if (enemyCar.Top > this.Height)
-            {
-                enemyCar.Top = -enemyCar.Height;  // Respawn above the form
-                                                  // DO NOT change enemyCar.Left — keep horizontal position intact
-            }
+                enemyCar.Top = -enemyCar.Height;
+        }
+
+        private void GameOver()
+        {
+            GameTimer.Stop();
+            MessageBox.Show("Game Over! You crashed!", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
