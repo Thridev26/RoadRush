@@ -180,7 +180,11 @@ namespace RoadRush
         private void GameOver()
         {
             GameTimer.Stop();
-            MessageBox.Show("Game Over! You crashed!", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            this.Hide(); // Hide the racing game form
+
+            GameOverForm gameOverForm = new GameOverForm();
+            gameOverForm.FormClosed += (s, args) => this.Close(); // Close this form when GameOverForm is closed
+            gameOverForm.Show();
         }
     }
 }
