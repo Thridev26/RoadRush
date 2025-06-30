@@ -68,7 +68,7 @@ namespace RoadRush
             // 
             this.EnemyCar2.BackColor = System.Drawing.Color.Green;
             this.EnemyCar2.Image = ((System.Drawing.Image)(resources.GetObject("EnemyCar2.Image")));
-            this.EnemyCar2.Location = new System.Drawing.Point(325, 160);
+            this.EnemyCar2.Location = new System.Drawing.Point(522, 31);
             this.EnemyCar2.Name = "EnemyCar2";
             this.EnemyCar2.Size = new System.Drawing.Size(54, 100);
             this.EnemyCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +90,7 @@ namespace RoadRush
             this.EnemyCar3.TabIndex = 3;
             this.EnemyCar3.TabStop = false;
             // 
-            // Form1
+            // RacingGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +103,7 @@ namespace RoadRush
             this.Controls.Add(this.PlayerCar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Name = "Form1";
+            this.Name = "RacingGameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RacingGameForm";
             ((System.ComponentModel.ISupportInitialize)(this.PlayerCar)).EndInit();
